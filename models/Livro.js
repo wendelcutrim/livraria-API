@@ -3,34 +3,35 @@ module.exports = (sequelize, DataType) => {
     "Livro",
     {
       id: {
-        type: Sequelize.INTEGER,
+        type: DataType.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false,
       },
       titulo: {
-        type: Sequelize.STRING,
+        type: DataType.STRING,
         allowNull: false,
       },
       quantidade_paginas: {
         allowNull: false,
-        type: Sequelize.INTEGER,
+        type: DataType.INTEGER,
       },
       autor: {
-        type: Sequelize.STRING,
+        type: DataType.STRING,
         allowNull: false,
       },
       ano_lancamento: {
         allowNull: false,
-        type: Sequelize.INTEGER,
+        type: DataType.INTEGER,
       },
       estoque: {
         allowNull: false,
-        type: Sequelize.INTEGER,
+        type: DataType.INTEGER,
       },
     },
     {
       tableName: "livros",
+      timestamps: false
     }
   );
 
