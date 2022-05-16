@@ -15,15 +15,11 @@ const LivrosController = {
     showBook: async (req, res) => {
         try {
             const { id } = req.params;
-            // O objeto com atributo raw, é um recurso do sequelize que diz que o retorno da consulta do banco, não será no padrão do sequelize, assim coseguimos usar esse retorno como um objeto javascript puro. Pois se usarmos o returno do tipo book do sequelize, teriamos que ter a tabela no banco de dados com o pais pra trazer o dado, nesse caso como não criamos, para inserir a flag do país do retorno da api, precisamos pegar o objeto javascript puro para adicionar.
+            
             const book = await Livro.findByPk(id, {raw: true});
-            //Nesse exemplo, todos os livros terá bandeira do brazil porque passamos o alpha code do brasil como parametro, mas caso tivesse a tabela de país no banco, iria puxar pela alfacode do país salvo no banco de dados.
+            
             const country = await CountriesService.getByAlphaCode('BRA');
-            /*Como inserir uma nova propriedade em um objeto que já existe: Poderia usar das seguintes maneiras:
-                1º: nomeObjeto["novo atributo"]; //book[flag] = country[0].flags.png;
-                2º nomeObjeto.novaPropriedade // book.flag = country[0].flags.png;
-                3º Object.assing(objeto, {nova propriedade: valor});
-            */
+            
             Object.assign(book, {
                 flag: country[0].flags.png,
             });
