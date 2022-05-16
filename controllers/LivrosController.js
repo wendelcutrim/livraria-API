@@ -1,4 +1,5 @@
 const { Livro } = require('../models');
+const CountriesService = require('../services/Countries');
 
 const LivrosController = {
     showAllBooks: async (req, res) => {
@@ -14,7 +15,14 @@ const LivrosController = {
     showBook: async (req, res) => {
         try {
             const { id } = req.params;
-            const book = await Livro.findByPk(id);
+            
+            const book = await Livro.findByPk(id, {raw: true});
+            
+            const country = await CountriesService.getByAlphaCode('BRA');
+            
+            Object.assign(book, {
+                flag: country[0].flags.png,
+            });
 
             return res.status(200).json(book);
         } catch(err){
