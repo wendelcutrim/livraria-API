@@ -19,3 +19,10 @@ PARA IR ALÉM (e deixar o sistema completo):
 
 Desafio: Deletar um livro:
     ✔ Realizar a rota e controller para deletar um livro. @done(22-05-15 19:47)
+
+Agora iremos consumir a API do Rest Countries:
+    ✔ Instalar o axios @done(22-05-15 23:34)
+    ✔ Configurar a estrutura de consumo da API (Pois no MVC não existe camada para isso, ou seja, teremos que criar uma nova camada). @done(22-05-15 23:34)
+    ✔ Criar o arquivo ou pasta/arquivo que irá consumir a API @done(22-05-15 23:34)
+    ✔ Exportar o arquivo @done(22-05-15 23:34)
+    ✔ Alterar o método que faz a pesquisa de um livro para exibir o alpha code também. @done(22-05-15 23:34)
